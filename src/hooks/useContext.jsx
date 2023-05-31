@@ -7,7 +7,7 @@ import { createContext, useEffect, useState } from "react";
 /*supongamos que este es el archivo App.js*/
 function App() {
   return (
-    /*el componente ViewArray tendra acceso a los valores del contexto DataContext, esto gracias a que el componente esta envuelto en el contexto que esta dentro de DataProvider*/
+    /*el componente ViewArray tendra acceso a los valores del contexto DataContext, esto gracias a que el componente esta envuelto en el contexto que esta dentro de DataProvider, es muy IMPORTANTE que dentro del Provider del contexto se envuelva los componentes que puedan accedar a sus valores. esto igual es posible dentro de las rutas, ejemplo, element: <DataProvider><ViewArray/></DataProvider>*/
     <DataProvider>
       <ViewArray />
     </DataProvider>
@@ -17,7 +17,7 @@ function App() {
 /*se crea el contexto en otro archivo, supongamos que este se creo en un archivo con el nombre DataContext.js*/
 const DataContext = createContext();
 
-/*Los demas componentes podran consumir los valores array y setArray, ya que en el atributo value del contexto se le esta indicando que eso es lo que se tiene que compartir*/
+/*La funcion DataProvider genera el Provider del contexto que se creo con el nombre DataContext,es por eso que se visualiza <DataContext.Provider></DataContext.Provider>. Los demas componentes podran consumir los valores array y setArray, ya que en el atributo value del contexto se le esta indicando que eso es lo que se tiene que compartir*/
 const DataProvider = ({ children }) => {
   const [array, setArray] = useState([]);
   <DataContext.Provider
