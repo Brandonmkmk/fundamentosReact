@@ -1,7 +1,7 @@
 /*El useRef nos permite referenciar un elemento del dom sin la necesidad de querySelector, document.getElementById, etc. basicamente funciona como un selector tradicionaal de javascript puro*/
 
 import { useRef } from "react";
-import "./app.css";
+// import "./app.css";
 export const Referencias = () => {
   let refMenu = useRef();
   let refMenuBtn = useRef();
